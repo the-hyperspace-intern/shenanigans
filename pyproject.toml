@@ -1,0 +1,53 @@
+[project]
+name = "matplotlib-pyodide"
+authors = [
+  { name="Pyodide developers"},
+]
+description = "HTML5 backends for Matplotlib compatible with Pyodide"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.10"
+dynamic = ["version"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+]
+
+[build-system]
+requires = ["setuptools>=42", "setuptools_scm[toml]>=6.2", "wheel"]
+
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Homepage" = "https://github.com/pyodide/matplotlib-pyodide"
+"Bug Tracker" = "https://github.com/pyodide/matplotlib-pyodide/issues"
+
+[project.optional-dependencies]
+test = [
+  "pytest-pyodide==0.56.2",
+  "pytest-cov",
+  "build>=1.0",
+]
+
+
+
+# Evable versioning via setuptools_scm
+[tool.setuptools_scm]
+
+[tool.pycln]
+all = true
+
+[tool.isort]
+profile = "black"
+known_first_party = [
+  "pyodide",
+  "pyodide_js",
+  "micropip",
+]
+
+[tool.mypy]
+python_version = "3.10"
+show_error_codes = true
+warn_unreachable = true
+ignore_missing_imports = true
